@@ -26,7 +26,9 @@ const App = () => {
           return total + quantity;
         }, 0)}
       />
-      <Outlet context={{ data, setCartItems, cart, loading }} />
+      <main>
+        <Outlet context={{ data, setCartItems, cart, loading }} />
+      </main>
     </>
   );
 };

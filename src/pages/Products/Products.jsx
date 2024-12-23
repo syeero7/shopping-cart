@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import Product from "../../components/Product/Product";
+import styles from "./Products.module.css";
 
 function Products() {
   const { data, setCartItems, loading, cart } = useOutletContext();
@@ -8,11 +9,11 @@ function Products() {
     <>
       <h1>Products</h1>
       {loading ? (
-        <div>
+        <div className={styles.loading}>
           <p>Loading...</p>
         </div>
       ) : (
-        <article>
+        <article className={styles.container}>
           <ul>
             {data.map((item) => (
               <li key={item.id}>

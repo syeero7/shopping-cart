@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem";
+import styles from "./Cart.module.css";
 
 function Cart() {
   const { data, cart } = useOutletContext();
@@ -10,11 +11,11 @@ function Cart() {
     <>
       <h1>Cart</h1>
       {!items?.length ? (
-        <div>
+        <div className={styles.empty}>
           <p>cart is empty</p>
         </div>
       ) : (
-        <article>
+        <article className={styles.container}>
           <ul>
             {items.map((item) => (
               <li key={item.id}>

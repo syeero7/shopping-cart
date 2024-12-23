@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import addToCart from "../../assets/add-cart.svg";
 import { useState } from "react";
+import styles from "./Product.module.css";
 
 function Product({ id, title, price, image, setCartItems, itemQuantity }) {
   const [quantity, setQuantity] = useState(itemQuantity);
@@ -14,14 +15,14 @@ function Product({ id, title, price, image, setCartItems, itemQuantity }) {
   };
 
   return (
-    <article data-id={id}>
+    <article data-id={id} className={styles.card}>
       <h2>{title}</h2>
-      <div aria-hidden="true">
-        <img src={image} alt="" />
+      <div aria-hidden="true" className={styles.img}>
+        <img src={image} alt="" width="300" height="300" />
       </div>
       <strong>${price}</strong>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className={styles.input}>
           <button
             type="button"
             onClick={() => setQuantity((q) => q - 1)}
@@ -41,7 +42,7 @@ function Product({ id, title, price, image, setCartItems, itemQuantity }) {
             +
           </button>
         </div>
-        <button type="submit" aria-label="add to cart">
+        <button type="submit" aria-label="add to cart" className={styles.add}>
           <img
             aria-hidden="true"
             src={addToCart}

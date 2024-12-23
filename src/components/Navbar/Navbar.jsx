@@ -2,11 +2,12 @@ import { NavLink } from "react-router-dom";
 import home from "../../assets/home.svg";
 import cart from "../../assets/cart.svg";
 import PropTypes from "prop-types";
+import styles from "./Navbar.module.css";
 
 function Navbar({ itemCount }) {
   return (
     <header>
-      <nav>
+      <nav className={styles.navbar}>
         <ul>
           <li>
             <NavLink to="/">
@@ -25,7 +26,7 @@ function Navbar({ itemCount }) {
             <NavLink to="/products">Products</NavLink>
           </li>
 
-          <li>
+          <li className={styles.cartLink}>
             <NavLink to="/cart">
               <span className="visually-hidden">shopping cart</span>
               <img
