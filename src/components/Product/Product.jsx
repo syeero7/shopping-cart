@@ -26,7 +26,7 @@ function Product({ id, title, price, image, setCartItems, itemQuantity }) {
           <button
             type="button"
             onClick={() => setQuantity((q) => q - 1)}
-            disabled={quantity === 1}
+            disabled={quantity <= 1}
           >
             -
           </button>
@@ -36,7 +36,7 @@ function Product({ id, title, price, image, setCartItems, itemQuantity }) {
             min="1"
             name="quantity"
             value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e) => setQuantity(+e.target.value)}
           />
           <button type="button" onClick={() => setQuantity((q) => q + 1)}>
             +
