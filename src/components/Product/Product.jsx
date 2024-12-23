@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import addToCart from "../../assets/add-cart.svg";
 import { useState } from "react";
 
-function Product({ id, title, price, image, setCartItems }) {
-  const [quantity, setQuantity] = useState(1);
+function Product({ id, title, price, image, setCartItems, itemQuantity }) {
+  const [quantity, setQuantity] = useState(itemQuantity);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,6 +61,11 @@ Product.propTypes = {
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   setCartItems: PropTypes.func.isRequired,
+  itemQuantity: PropTypes.number,
+};
+
+Product.defaultProps = {
+  itemQuantity: 1,
 };
 
 export default Product;
