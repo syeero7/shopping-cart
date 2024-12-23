@@ -15,11 +15,8 @@ describe("Product", () => {
   it("should render product component with given props", () => {
     render(<Product {...PROPS} />);
 
-    const heading = screen.getByRole("heading");
-    const price = screen.getByRole("strong");
-
-    expect(heading).toHaveTextContent(PROPS.title);
-    expect(price).toHaveTextContent(`$${PROPS.price}`);
+    expect(screen.getByRole("heading")).toHaveTextContent(PROPS.title);
+    expect(screen.getByRole("strong")).toHaveTextContent(`$${PROPS.price}`);
   });
 
   it("should increment/decrement the quantity when the button is clicked", async () => {
