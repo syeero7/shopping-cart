@@ -15,6 +15,10 @@ const App = () => {
     throw new Error(error);
   }, [error]);
 
+  const cart = cartItems.reduce((acc, obj) => {
+    return { ...acc, [obj.id]: { quantity: obj.quantity } };
+  }, {});
+
   return (
     <>
       <Navbar
@@ -22,7 +26,7 @@ const App = () => {
           return total + quantity;
         }, 0)}
       />
-      <Outlet context={{ data, setCartItems, cartItems, loading }} />
+      <Outlet context={{ data, setCartItems, cart, loading }} />
     </>
   );
 };
