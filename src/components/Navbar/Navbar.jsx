@@ -1,7 +1,4 @@
 import { NavLink } from "react-router-dom";
-import home from "../../assets/home.svg";
-import cart from "../../assets/cart.svg";
-import PropTypes from "prop-types";
 import styles from "./Navbar.module.css";
 
 function Navbar({ itemCount }) {
@@ -12,13 +9,7 @@ function Navbar({ itemCount }) {
           <li>
             <NavLink to="/">
               <span className="visually-hidden">home</span>
-              <img
-                aria-hidden="true"
-                src={home}
-                alt=""
-                width="50"
-                height="50"
-              />
+              home svg
             </NavLink>
           </li>
 
@@ -29,13 +20,7 @@ function Navbar({ itemCount }) {
           <li className={styles.cartLink}>
             <NavLink to="/cart">
               <span className="visually-hidden">shopping cart</span>
-              <img
-                aria-hidden="true"
-                src={cart}
-                alt=""
-                width="50"
-                height="50"
-              />
+              cart svg
             </NavLink>
             <span aria-label="cart item count">{itemCount}</span>
           </li>
@@ -44,9 +29,5 @@ function Navbar({ itemCount }) {
     </header>
   );
 }
-
-Navbar.propTypes = {
-  itemCount: PropTypes.number.isRequired,
-};
 
 export default Navbar;

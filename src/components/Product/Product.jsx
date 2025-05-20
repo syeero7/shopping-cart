@@ -1,9 +1,7 @@
-import PropTypes from "prop-types";
-import addToCart from "../../assets/add-cart.svg";
 import { useState } from "react";
 import styles from "./Product.module.css";
 
-function Product({ id, title, price, image, setCartItems, itemQuantity }) {
+function Product({ id, title, price, image, setCartItems, itemQuantity = 1 }) {
   const [quantity, setQuantity] = useState(itemQuantity);
 
   const handleSubmit = (e) => {
@@ -26,8 +24,7 @@ function Product({ id, title, price, image, setCartItems, itemQuantity }) {
           <button
             type="button"
             onClick={() => setQuantity((q) => q - 1)}
-            disabled={quantity <= 1}
-          >
+            disabled={quantity <= 1}>
             -
           </button>
           <input
@@ -43,30 +40,11 @@ function Product({ id, title, price, image, setCartItems, itemQuantity }) {
           </button>
         </div>
         <button type="submit" aria-label="add to cart" className={styles.add}>
-          <img
-            aria-hidden="true"
-            src={addToCart}
-            alt=""
-            width="50"
-            height="50"
-          />
+          cart + svg
         </button>
       </form>
     </article>
   );
 }
-
-Product.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  setCartItems: PropTypes.func.isRequired,
-  itemQuantity: PropTypes.number,
-};
-
-Product.defaultProps = {
-  itemQuantity: 1,
-};
 
 export default Product;

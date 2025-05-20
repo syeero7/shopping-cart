@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styles from "./CartItem.module.css";
 
 function CartItem({ id, title, price, image, quantity }) {
@@ -13,13 +12,5 @@ function CartItem({ id, title, price, image, quantity }) {
     </article>
   );
 }
-
-CartItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired,
-};
 
 export default CartItem;
