@@ -1,0 +1,9 @@
+.container {
+  max-width: 720px;
+  margin-inline: auto;
+
+  & p {
+    text-align: center;
+    padding-inline: 1.5em;
+  }
+}
