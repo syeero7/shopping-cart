@@ -2,12 +2,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  gap: 0.75em;
+  padding: 1.5em 1em;
   min-height: 100%;
-  border-radius: 12px;
-  padding: 1rem;
-  gap: 1rem;
-  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
-  background-color: white;
+  border-radius: 10px;
+  max-width: 320px;
+  background-color: hsl(0, 0%, 100%);
+
+  --box-shadow: hsla(from var(--text) h s l / 0.1);
+
+  box-shadow: 3px 3px 5px var(--box-shadow), -1px 0 2px var(--box-shadow),
+    0 -1px 2px var(--box-shadow);
+
+  & h2 {
+    font-size: 1.2em;
+    min-width: 100%;
+    margin-left: 0.5em;
+  }
+
+  & button {
+    padding-block: 0.5em 0.3em;
+    padding-inline: 1.5em;
+    background-color: var(--accent);
+    color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-weight: 500;
+    transition-property: border-color, filter;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+
+    --button-color: hsl(from var(--accent) h s 45%);
+
+    &:active,
+    &:focus-visible,
+    &:hover {
+      border-color: var(--button-color);
+      filter: drop-shadow(0 0 0.25em var(--button-color));
+    }
+  }
 }
 
 .img {

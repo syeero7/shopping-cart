@@ -9,9 +9,8 @@ function CartItem({ title, price, image, quantity, onClick }) {
       </div>
       <strong>${price}</strong>
       <p>quantity: {quantity}</p>
-      <div>
-        <button onClick={onClick}>Remove from cart</button>
-      </div>
+
+      <button onClick={onClick}>Remove from cart</button>
     </article>
   );
 }
