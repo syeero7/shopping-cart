@@ -25,8 +25,8 @@ describe("Product", () => {
 
     render(<Product {...PROPS} />);
 
-    const incrementBtn = screen.getByRole("button", { name: "+" });
-    const decrementBtn = screen.getByRole("button", { name: "-" });
+    const incrementBtn = screen.getByLabelText(/increment quantity/i);
+    const decrementBtn = screen.getByLabelText(/decrement quantity/i);
     const input = screen.getByRole("spinbutton");
 
     expect(decrementBtn).toBeDisabled();
