@@ -1,15 +1,19 @@
 import { useState } from "react";
 import styles from "./Product.module.css";
 
-function Product({ id, title, price, image, setCartItems, itemQuantity = 1 }) {
-  const [quantity, setQuantity] = useState(itemQuantity);
+function Product({ id, title, price, image, setCartItems }) {
+  const [quantity, setQuantity] = useState(1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setCartItems((c) => {
-      return [...c.filter((product) => product.id !== id), { id, quantity }];
+    setCartItems((prev) => {
+      const map = new Map(prev);
+      map.has(id) ? map.set(id, map.get(id) + quantity) : map.set(id, quantity);
+      return map;
     });
+
+    setQuantity(1);
   };
 
   return (
@@ -33,7 +37,7 @@ function Product({ id, title, price, image, setCartItems, itemQuantity = 1 }) {
             min="1"
             name="quantity"
             value={quantity}
-            onChange={(e) => setQuantity(+e.target.value)}
+            onChange={(e) => setQuantity(e.target.value)}
           />
           <button type="button" onClick={() => setQuantity((q) => q + 1)}>
             +

@@ -3,7 +3,7 @@ import Product from "../../components/Product/Product";
 import styles from "./Products.module.css";
 
 function Products() {
-  const { data, setCartItems, loading, cart } = useOutletContext();
+  const { data, setCartItems, loading } = useOutletContext();
 
   return (
     <>
@@ -23,7 +23,6 @@ function Products() {
                   price={item.price}
                   image={item.image}
                   setCartItems={setCartItems}
-                  itemQuantity={cart[item.id]?.quantity}
                 />
               </li>
             ))}

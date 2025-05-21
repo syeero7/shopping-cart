@@ -3,9 +3,9 @@ import CartItem from "../../components/CartItem/CartItem";
 import styles from "./Cart.module.css";
 
 function Cart() {
-  const { data, cart } = useOutletContext();
+  const { data, cartItems } = useOutletContext();
 
-  const items = data?.filter((item) => cart[item.id]);
+  const items = data?.filter((item) => cartItems.has(item.id));
 
   return (
     <>
@@ -23,7 +23,7 @@ function Cart() {
                   id={item.id}
                   title={item.title}
                   price={item.price}
-                  quantity={cart[item.id]?.quantity}
+                  quantity={cartItems.get(item.id)}
                   image={item.image}
                 />
               </li>
