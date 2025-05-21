@@ -10,7 +10,7 @@
 
   --text: hsl(216, 100%, 5%);
   --background: hsl(223, 100%, 99%);
-  --primary: hsl(216, 92%, 55%);
+  --primary: hsl(216, 100%, 52%);
   --secondary: hsl(202, 100%, 22%);
   --accent: hsl(0, 100%, 66%);
 }
@@ -65,5 +65,5 @@ button:hover {
 }
 
 button:disabled {
-  cursor: not-allowed;
+  opacity: 0.75;
 }

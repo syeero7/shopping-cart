@@ -7,27 +7,29 @@ function Products() {
 
   return (
     <>
-      <h1>Products</h1>
       {loading ? (
-        <div className={styles.loading}>
-          <p>Loading...</p>
+        <div className={styles.loader}>
+          <div className={styles.loading}>Loading</div>
         </div>
       ) : (
-        <article className={styles.container}>
-          <ul>
-            {data.map((item) => (
-              <li key={item.id}>
-                <Product
-                  id={item.id}
-                  title={item.title}
-                  price={item.price}
-                  image={item.image}
-                  setCartItems={setCartItems}
-                />
-              </li>
-            ))}
-          </ul>
-        </article>
+        <>
+          <h1>Products</h1>
+          <article className={styles.container}>
+            <ul>
+              {data.map((item) => (
+                <li key={item.id}>
+                  <Product
+                    id={item.id}
+                    title={item.title}
+                    price={item.price}
+                    image={item.image}
+                    setCartItems={setCartItems}
+                  />
+                </li>
+              ))}
+            </ul>
+          </article>
+        </>
       )}
     </>
   );

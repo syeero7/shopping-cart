@@ -27,9 +27,12 @@ function Product({ id, title, price, image, setCartItems }) {
         <div className={styles.input}>
           <button
             type="button"
+            aria-label="decrement quantity by 1"
             onClick={() => setQuantity((q) => q - 1)}
             disabled={quantity <= 1}>
-            -
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path d="M200-440v-80h560v80H200Z" />
+            </svg>
           </button>
           <input
             aria-label="quantity"
@@ -39,12 +42,17 @@ function Product({ id, title, price, image, setCartItems }) {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
-          <button type="button" onClick={() => setQuantity((q) => q + 1)}>
-            +
+          <button
+            type="button"
+            aria-label="increment quantity by 1"
+            onClick={() => setQuantity((q) => q + 1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
           </button>
         </div>
         <button type="submit" aria-label="add to cart" className={styles.add}>
-          cart + svg
+          Add to cart
         </button>
       </form>
     </article>
